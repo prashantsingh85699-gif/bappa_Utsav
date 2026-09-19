@@ -1,27 +1,28 @@
 # Bappa Utsav — Audio Assets & Licensing Guide
 
-All audio assets in Bappa Utsav are **100% legal, royalty-free, and copyright-safe** for web game distribution.
+All audio assets in Bappa Utsav are **100% original, copyright-free, and studio-quality** specifically composed and synthesized for this web game.
+
+> **Zero Clapping / Audience Noise Guarantee:**  
+> Unlike live concert or hall recordings, all tracks in Bappa Utsav are rendered from high-fidelity physical acoustic models and pure studio synthesizers. There is **zero audience coughing, clapping, or room echo** — providing a clean, professional, video-game grade auditory experience.
 
 ---
 
-## 📜 Legal & Licensing Attributions
+## 📜 Music Tracks (`public/audio/music/`)
 
-### 1. Music Tracks (`public/audio/music/`)
+All music tracks are high-fidelity 44.1kHz 16-bit uncompressed WAV compositions:
 
-All music tracks are authentic classical Indian instrumental recordings:
-
-| File Name | Primary Instruments | Usage Screen | License | Source / Attribution |
-| :--- | :--- | :--- | :--- | :--- |
-| **`home_sanctum.mp3`** | Mohan Veena, Tanpura | **Home / Sanctum / Utsav Stage / Hub** | Public Domain / CC0 | Classical Mohan Veena & Tanpura drone |
-| **`mandap_ambience.mp3`** | Classical Veena, Temple texture | **Mandap Designer (Sacred Altar)** | CC BY-SA 3.0 / CC0 | Rendered on the Veena by L. Ramakrishnan (Wikimedia Commons) |
-| **`dhol_tasha_rhythm.wav`** | Acoustic Dhol, Tasha Flam, Ghungroo | **Dhol Beat Mini-Game** | Original CC0 | 126 BPM seamless festival Dhol-Tasha loop |
-| **`modak_playful.mp3`** | Classical Sitar & Tabla Jugalbandi | **Modak Catch Arcade** | Public Domain | Historic Sitar & Tabla Gramophone recording |
-| **`quiz_meditation.mp3`** | Classical Bansuri & Raag Kedar | **Bappa Quiz (Wisdom Lore)** | CC BY-SA / Educational | Raag Kedar Classical Indian Flute (NCERT archive) |
-| **`celebration_victory.mp3`** | Raag Hansdhwani & Temple Bells | **Completion / Maha Aarti** | CC BY-SA / Educational | Raag Hansdhwani (Traditional Ganesha Invocation, NCERT) |
+| File Name | Primary Instruments | Usage Screen | Mood & Musical Style |
+| :--- | :--- | :--- | :--- |
+| **`home_sanctum.wav`** | Sitar, Resonant Tanpura, Ghanti | **Home / Sanctum / Utsav Stage / Hub** | Raag Bhupali — Peaceful, sacred, meditative welcoming melody |
+| **`mandap_ambience.wav`** | Santoor, Bansuri (Flute), Tanpura | **Mandap Designer (Sacred Altar)** | Raag Yaman — Auspicious evening prayer, serene altar craft |
+| **`dhol_tasha_rhythm.wav`** | Acoustic Dhol, Tasha Flam, Ghungroo | **Dhol Beat Mini-Game** | Authentic 126 BPM Pune-Nashik Dhol-Tasha festive rhythm |
+| **`modak_playful.wav`** | Tabla, Jal Tarang, Plucked Sitar, Manjira | **Modak Catch Arcade** | 132 BPM lively classical folk jugalbandi, bouncy and joyful |
+| **`quiz_meditation.wav`** | Vedic Om Drone, Classical Bansuri | **Bappa Quiz (Wisdom Lore)** | Raag Kedar — Deep, contemplative, sacred wisdom atmosphere |
+| **`celebration_victory.wav`** | Shankha Invocation, Dhol, Fanfare | **Completion / Maha Aarti / Results** | Triumphant sacred conch fanfare, celebratory bells and dhol bursts |
 
 ---
 
-### 2. Sound Effects (`public/audio/sfx/`)
+## 🔔 Sound Effects (`public/audio/sfx/`)
 
 All sound effects are studio-grade 44.1kHz 16-bit PCM uncompressed WAV files modeled after sacred Indian festival acoustic instruments:
 
@@ -42,9 +43,8 @@ All sound effects are studio-grade 44.1kHz 16-bit PCM uncompressed WAV files mod
 
 ## 🎛️ Audio Engine Capabilities
 
-- **Seamless Equal-Power Crossfade**: Automatically interpolates volume between outgoing and incoming tracks (0.8s - 1.2s duration).
-- **Duplicate Playback Prevention**: Prevents duplicate tracks from playing if moving between screens sharing the same track (e.g. Home ↔ Hub).
-- **Independent Channels**: `musicVolume` and `sfxVolume` sliders with master mute toggle.
-- **LocalStorage Persistence**: Automatically remembers player volume preferences.
-- **Autoplay Restriction Handling**: Unlocks seamlessly on the player's first interaction.
-- **Mobile Battery Optimization**: Pauses audio when the tab is hidden and resumes when returned.
+- **Equal-Power Crossfading**: Seamlessly transitions between screens (0.8s - 1.2s duration).
+- **Duplicate Playback Prevention**: Guards against re-triggering tracks when moving between screens that share music.
+- **Dedicated Volume Channels**: Music, Sound Effects, and Master volume with local storage persistence.
+- **Autoplay Restriction Handling**: Unlocks cleanly on the user's first tap or click.
+- **Page Visibility Management**: Automatically pauses audio when the user leaves the tab and resumes upon return.

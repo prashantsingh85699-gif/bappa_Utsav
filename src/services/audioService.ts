@@ -46,15 +46,15 @@ const STORAGE_KEYS = {
 };
 
 const MUSIC_SRC_MAP: Record<string, string> = {
-  home: '/audio/music/home_sanctum.mp3',
-  mandap: '/audio/music/mandap_ambience.mp3',
+  home: '/audio/music/home_sanctum.wav',
+  mandap: '/audio/music/mandap_ambience.wav',
   dhol: '/audio/music/dhol_tasha_rhythm.wav',
-  modak: '/audio/music/modak_playful.mp3',
-  quiz: '/audio/music/quiz_meditation.mp3',
-  celebration: '/audio/music/celebration_victory.mp3',
+  modak: '/audio/music/modak_playful.wav',
+  quiz: '/audio/music/quiz_meditation.wav',
+  celebration: '/audio/music/celebration_victory.wav',
   // Aliases
-  festival: '/audio/music/home_sanctum.mp3',
-  calm: '/audio/music/home_sanctum.mp3',
+  festival: '/audio/music/home_sanctum.wav',
+  calm: '/audio/music/home_sanctum.wav',
   gameplay: '/audio/music/dhol_tasha_rhythm.wav',
 };
 

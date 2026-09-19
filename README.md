@@ -138,15 +138,15 @@ To prevent fake, unknown, or arbitrary score spam, Bappa Utsav includes a built-
 
 ## 🎵 Original Festival Audio System
 
-All audio in Bappa Utsav is **100% legal, original, and copyright-safe** — no commercial Bollywood songs, YouTube rips, or commercial recordings.
+All audio in Bappa Utsav is **100% original, copyright-free, and studio-grade** — no commercial Bollywood songs, YouTube rips, or audience-recorded live concert tapes. **Zero background coughing, clapping, or room noise!**
 
 ### Background Music Tracks (`public/audio/music/`):
-- **Home / Utsav Stage**: `home_sanctum.mp3` — Peaceful Mohan Veena & meditative Tanpura drone.
-- **Mandap Designer**: `mandap_ambience.mp3` — Classical Indian Veena & temple courtyard ambience.
-- **Dhol Beat**: `dhol_tasha_rhythm.wav` — High-energy 126 BPM seamless authentic Dhol-Tasha loop.
-- **Modak Catch**: `modak_playful.mp3` — Playful classical Sitar & Tabla jugalbandi.
-- **Quiz**: `quiz_meditation.mp3` — Meditative Raag Kedar classical bamboo flute & drone.
-- **Celebration / Results**: `celebration_victory.mp3` — Traditional Raag Hansdhwani invocation & victory fanfare.
+- **Home / Utsav Stage**: `home_sanctum.wav` — Serene Sitar & resonant Tanpura drone in Raag Bhupali.
+- **Mandap Designer**: `mandap_ambience.wav` — Auspicious Santoor cascades & gentle Bansuri flute in Raag Yaman.
+- **Dhol Beat**: `dhol_tasha_rhythm.wav` — High-energy 126 BPM seamless authentic Dhol-Tasha loop with Ghungroo.
+- **Modak Catch**: `modak_playful.wav` — Bouncy 132 BPM folk groove with Tabla, Jal Tarang, and Sitar.
+- **Quiz**: `quiz_meditation.wav` — Deep Vedic Om drone & meditative classical Bansuri in Raag Kedar.
+- **Celebration / Results**: `celebration_victory.wav` — Triumphant sacred Shankha invocation, festive Dhol bursts, and victory fanfare.
 
 ### High-Fidelity Sound Effects (`public/audio/sfx/`):
 - `temple_bell.wav`: 4.0s resonant heavy brass temple bell with natural harmonic decay.
