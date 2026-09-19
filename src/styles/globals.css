@@ -1,0 +1,365 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    overflow-x: hidden;
+    width: 100%;
+    overscroll-behavior-y: contain;
+    touch-action: manipulation;
+  }
+  body {
+    background-color: #0E021C;
+    background-image: 
+      radial-gradient(circle at 50% 15%, rgba(245, 158, 11, 0.16), transparent 45%),
+      radial-gradient(circle at 10% 85%, rgba(190, 18, 60, 0.14), transparent 45%),
+      radial-gradient(circle at 90% 85%, rgba(234, 88, 12, 0.14), transparent 45%),
+      radial-gradient(circle at 50% 100%, rgba(107, 33, 168, 0.18), transparent 50%);
+    min-height: 100vh;
+    min-height: 100dvh;
+    overflow-x: hidden;
+    width: 100%;
+    user-select: none;
+    -webkit-user-select: none;
+    -webkit-tap-highlight-color: transparent;
+  }
+}
+
+.touch-none {
+  touch-action: none;
+  overscroll-behavior: none;
+}
+
+.game-canvas {
+  touch-action: none;
+  display: block;
+  overscroll-behavior: none;
+}
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* Glassmorphism & Festive Cards */
+.festive-glass {
+  background: rgba(31, 10, 56, 0.72);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid rgba(245, 158, 11, 0.22);
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.38);
+}
+
+.festive-glass-glow {
+  background: rgba(36, 10, 68, 0.85);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  border: 1.5px solid rgba(251, 191, 36, 0.45);
+  box-shadow: 0 0 25px rgba(245, 158, 11, 0.25), inset 0 1px 0 rgba(255, 255, 255, 0.15);
+}
+
+.festive-gold-gradient {
+  background: linear-gradient(180deg, #FDE68A 0%, #F59E0B 45%, #D97706 100%);
+}
+
+.festive-crimson-gradient {
+  background: linear-gradient(180deg, #FB7185 0%, #E11D48 45%, #9F1239 100%);
+}
+
+.festive-saffron-gradient {
+  background: linear-gradient(180deg, #FDBA74 0%, #EA580C 45%, #C2410C 100%);
+}
+
+.festive-text-gold {
+  background: linear-gradient(180deg, #FFFBEB 0%, #FDE047 30%, #F59E0B 70%, #B45309 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.festive-text-glow {
+  text-shadow: 0 0 12px rgba(245, 158, 11, 0.6), 0 0 24px rgba(234, 88, 12, 0.3);
+}
+
+/* 3D Tactile Buttons */
+.btn-3d-gold {
+  background: linear-gradient(180deg, #FEF08A 0%, #F59E0B 40%, #D97706 100%);
+  box-shadow: 0 5px 0 #92400E, 0 10px 18px rgba(0, 0, 0, 0.4);
+  transition: transform 0.08s ease, box-shadow 0.08s ease;
+}
+.btn-3d-gold:active {
+  transform: translateY(3px);
+  box-shadow: 0 2px 0 #92400E, 0 4px 8px rgba(0, 0, 0, 0.4);
+}
+
+.btn-3d-crimson {
+  background: linear-gradient(180deg, #FDA4AF 0%, #E11D48 40%, #9F1239 100%);
+  box-shadow: 0 5px 0 #701A31, 0 10px 18px rgba(0, 0, 0, 0.4);
+  transition: transform 0.08s ease, box-shadow 0.08s ease;
+}
+.btn-3d-crimson:active {
+  transform: translateY(3px);
+  box-shadow: 0 2px 0 #701A31, 0 4px 8px rgba(0, 0, 0, 0.4);
+}
+
+.btn-3d-glass {
+  background: rgba(42, 8, 69, 0.85);
+  border: 1.5px solid rgba(245, 158, 11, 0.35);
+  box-shadow: 0 4px 0 rgba(180, 83, 9, 0.6), 0 8px 16px rgba(0, 0, 0, 0.3);
+  transition: transform 0.08s ease, box-shadow 0.08s ease, background 0.15s ease;
+}
+.btn-3d-glass:active {
+  transform: translateY(2px);
+  box-shadow: 0 2px 0 rgba(180, 83, 9, 0.6), 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+/* Shimmer shine sweep */
+.shine-sweep {
+  position: relative;
+  overflow: hidden;
+}
+.shine-sweep::after {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(
+    60deg,
+    transparent 30%,
+    rgba(255, 255, 255, 0.3) 50%,
+    transparent 70%
+  );
+  transform: rotate(25deg) translateY(-100%);
+  animation: shineMove 4s infinite ease-in-out;
+  pointer-events: none;
+}
+@keyframes shineMove {
+  0% { transform: rotate(25deg) translateY(-150%); }
+  25%, 100% { transform: rotate(25deg) translateY(150%); }
+}
+
+/* Petal Falling Physics Animation */
+@keyframes petalFall {
+  0% {
+    transform: translate3d(0, -5vh, 0) rotate(0deg) scale(0.8);
+    opacity: 0;
+  }
+  15% {
+    opacity: 0.85;
+  }
+  50% {
+    transform: translate3d(var(--sway-x, 24px), 50vh, 0) rotate(180deg) scale(1);
+    opacity: 0.8;
+  }
+  85% {
+    opacity: 0.7;
+  }
+  100% {
+    transform: translate3d(calc(var(--sway-x, 24px) * -0.5), 105vh, 0) rotate(360deg) scale(0.85);
+    opacity: 0;
+  }
+}
+
+.animate-petal-fall {
+  animation-name: petalFall;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  will-change: transform, opacity;
+}
+
+/* Tactile Active Press */
+.active-press {
+  transition: transform 0.1s cubic-bezier(0.16, 1, 0.3, 1), filter 0.1s ease;
+  will-change: transform;
+}
+.active-press:active {
+  transform: scale(0.96) translateY(1px);
+  filter: brightness(1.08);
+}
+
+/* Touch Target Minimum 44x44px standard */
+.touch-target {
+  min-height: 44px;
+  min-width: 44px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Card hover lift & glow */
+.card-hover-lift {
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.25s ease, border-color 0.25s ease;
+  will-change: transform;
+}
+.card-hover-lift:hover {
+  transform: translateY(-3px);
+  border-color: rgba(251, 191, 36, 0.5);
+  box-shadow: 0 10px 30px -5px rgba(245, 158, 11, 0.25);
+}
+.card-hover-lift:active {
+  transform: translateY(0px) scale(0.98);
+}
+
+/* Progress bar shimmer fill */
+.progress-bar-shimmer {
+  background: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(255, 255, 255, 0.35) 50%,
+    rgba(255, 255, 255, 0) 100%
+  );
+  background-size: 200% 100%;
+  animation: shimmerMove 1.8s infinite linear;
+}
+@keyframes shimmerMove {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+/* Mobile Safe Area */
+.pb-safe {
+  padding-bottom: env(safe-area-inset-bottom, 16px);
+}
+
+/* Accessible reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+  *, ::before, ::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+}
+::-webkit-scrollbar-track {
+  background: rgba(14, 2, 28, 0.6);
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(245, 158, 11, 0.45);
+  border-radius: 9999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(245, 158, 11, 0.85);
+}
+
+/* =========================================================================
+   LIVE UTSAV STAGE ANIMATIONS & KEYFRAMES
+   ========================================================================= */
+
+@keyframes stageGentleSway {
+  0%, 100% {
+    transform: rotate(-1.5deg);
+  }
+  50% {
+    transform: rotate(1.5deg);
+  }
+}
+
+@keyframes stageBellSwing {
+  0%, 100% {
+    transform: rotate(-3deg);
+  }
+  50% {
+    transform: rotate(3deg);
+  }
+}
+
+@keyframes stageFairyPulseA {
+  0%, 100% {
+    opacity: 0.45;
+    filter: drop-shadow(0 0 4px #FBBF24);
+  }
+  50% {
+    opacity: 1;
+    filter: drop-shadow(0 0 12px #F59E0B);
+  }
+}
+
+@keyframes stageFairyPulseB {
+  0%, 100% {
+    opacity: 0.95;
+    filter: drop-shadow(0 0 10px #F59E0B);
+  }
+  50% {
+    opacity: 0.35;
+    filter: drop-shadow(0 0 3px #FDE68A);
+  }
+}
+
+@keyframes stageFairyPulseC {
+  0%, 100% {
+    opacity: 0.55;
+    filter: drop-shadow(0 0 5px #F59E0B);
+  }
+  50% {
+    opacity: 1;
+    filter: drop-shadow(0 0 14px #EA580C);
+  }
+}
+
+@keyframes stageDivineRaySpin {
+  0% {
+    transform: translate(-50%, -50%) rotate(0deg);
+  }
+  100% {
+    transform: translate(-50%, -50%) rotate(360deg);
+  }
+}
+
+@keyframes stageRangoliPulse {
+  0%, 100% {
+    transform: translate(-50%, 0) scale(1);
+    opacity: 0.18;
+  }
+  50% {
+    transform: translate(-50%, 0) scale(1.03);
+    opacity: 0.28;
+  }
+}
+
+.animate-stage-sway {
+  transform-origin: top center;
+  animation: stageGentleSway 5.5s infinite ease-in-out;
+}
+
+.animate-stage-sway-reverse {
+  transform-origin: top center;
+  animation: stageGentleSway 6.5s infinite ease-in-out reverse;
+}
+
+.animate-stage-bell {
+  transform-origin: top center;
+  animation: stageBellSwing 4s infinite ease-in-out;
+}
+
+.animate-fairy-a {
+  animation: stageFairyPulseA 2.6s infinite ease-in-out;
+}
+
+.animate-fairy-b {
+  animation: stageFairyPulseB 3.2s infinite ease-in-out;
+}
+
+.animate-fairy-c {
+  animation: stageFairyPulseC 2.2s infinite ease-in-out;
+}
+
+.animate-stage-ray-spin {
+  animation: stageDivineRaySpin 120s linear infinite;
+  transform-origin: center center;
+}
+
+.animate-stage-rangoli {
+  animation: stageRangoliPulse 7s infinite ease-in-out;
+}
+
