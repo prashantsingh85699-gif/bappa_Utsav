@@ -299,7 +299,7 @@ export const MandapDesignerGame: React.FC<MandapDesignerGameProps> = ({
   };
 
   return (
-    <div className="max-w-5xl mx-auto px-3 py-2 sm:py-3 flex flex-col space-y-3 select-none animate-fade-in relative">
+    <div className="max-w-5xl mx-auto px-2 sm:px-3 py-2 sm:py-3 pb-24 sm:pb-4 flex flex-col space-y-2 sm:space-y-3 select-none animate-fade-in relative">
       {/* Toast Banner for Saved Design */}
       {saveToast && (
         <div className="fixed top-16 left-1/2 -translate-x-1/2 z-50 px-4 py-2 rounded-2xl bg-emerald-600/90 text-white font-bold text-xs sm:text-sm shadow-xl flex items-center gap-2 border border-emerald-400 animate-toast-in">
@@ -364,13 +364,13 @@ export const MandapDesignerGame: React.FC<MandapDesignerGameProps> = ({
         </div>
       </div>
 
-      {/* Main Mandap Stage Viewport */}
+      {/* Main Mandap Stage Viewport - Fully responsive for mobile & desktop */}
       <div
         ref={stageRef}
         onPointerMove={handlePointerMoveStage}
         onPointerUp={handlePointerUpStage}
         onClick={() => setSelectedInstanceId(null)}
-        className="relative w-full h-[370px] sm:h-[450px] rounded-3xl border-2 border-amber-500/40 overflow-hidden shadow-[0_8px_32px_rgba(0,0,0,0.5)] festive-glass-glow cursor-crosshair select-none touch-none"
+        className="relative w-full h-[260px] xs:h-[300px] sm:h-[420px] md:h-[460px] rounded-3xl border-2 border-amber-500/40 overflow-hidden shadow-[0_8px_32px_rgba(0,0,0,0.5)] festive-glass-glow cursor-crosshair select-none touch-none"
       >
         {/* Ambient Divine Atmosphere Glow */}
         <div className="absolute inset-0 bg-gradient-to-b from-[#18042B] via-[#2A0845] to-[#120224] pointer-events-none opacity-95" />
@@ -379,7 +379,7 @@ export const MandapDesignerGame: React.FC<MandapDesignerGameProps> = ({
 
         {/* Lord Ganesha Murti in Center Stage */}
         <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 pointer-events-none z-10 flex flex-col items-center">
-          <BappaMurti size={235} className="scale-95 sm:scale-105" />
+          <BappaMurti size={160} className="scale-90 xs:scale-100 sm:scale-125" />
         </div>
 
         {/* Placed Items on Stage */}
@@ -591,13 +591,13 @@ export const MandapDesignerGame: React.FC<MandapDesignerGameProps> = ({
           </div>
 
           {/* Full-View Mandap Presentation Stage */}
-          <div className="relative w-full max-w-2xl h-[340px] sm:h-[400px] my-3 rounded-3xl border-2 border-yellow-300/80 overflow-hidden shadow-[0_0_50px_rgba(245,158,11,0.45)] bg-gradient-to-b from-[#18042B] via-[#2A0845] to-[#120224]">
+          <div className="relative w-full max-w-2xl h-[240px] xs:h-[280px] sm:h-[400px] my-2 sm:my-3 rounded-3xl border-2 border-yellow-300/80 overflow-hidden shadow-[0_0_50px_rgba(245,158,11,0.45)] bg-gradient-to-b from-[#18042B] via-[#2A0845] to-[#120224]">
             {/* Ambient Celestial Glow */}
             <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_35%,_rgba(245,158,11,0.3),_transparent_65%)] pointer-events-none animate-pulse-glow" />
 
             {/* Central Bappa Murti */}
             <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 pointer-events-none z-10">
-              <BappaMurti size={240} className="scale-95 sm:scale-105" />
+              <BappaMurti size={150} className="scale-90 xs:scale-100 sm:scale-125" />
             </div>
 
             {/* Placed Items on Presentation Stage */}

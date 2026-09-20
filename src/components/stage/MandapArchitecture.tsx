@@ -127,23 +127,23 @@ export const MandapArchitecture: React.FC<MandapArchitectureProps> = ({
           3. ROYAL CRIMSON & GOLD VELVET DRAPED PANDAL CURTAINS (LEFT & RIGHT)
          ────────────────────────────────────────────────────────────────────── */}
       {/* Left Velvet Curtain Drapes */}
-      <div className="absolute top-0 left-0 bottom-0 w-8 sm:w-28 md:w-44 lg:w-56 z-15 pointer-events-none overflow-hidden">
-        <div className="w-full h-full relative bg-gradient-to-r from-[#3B0716] via-[#7F1D1D] to-[#991B1B] shadow-[10px_0_35px_rgba(0,0,0,0.8)] border-r-2 border-[#F59E0B]/70">
+      <div className="absolute top-0 left-0 bottom-0 w-2 sm:w-28 md:w-44 lg:w-56 z-10 pointer-events-none overflow-hidden">
+        <div className="w-full h-full relative bg-gradient-to-r from-[#3B0716] via-[#7F1D1D] to-[#991B1B] shadow-[6px_0_20px_rgba(0,0,0,0.7)] border-r border-[#F59E0B]/70">
           {/* Vertical Pleated Folds Texture */}
           <div className="absolute inset-0 bg-gradient-to-r from-black/50 via-transparent to-black/35" />
-          <div className="absolute top-0 bottom-0 left-1/4 w-3 bg-black/30 blur-[2px]" />
-          <div className="absolute top-0 bottom-0 left-2/4 w-3 bg-black/30 blur-[2px]" />
-          <div className="absolute top-0 bottom-0 left-3/4 w-3 bg-black/30 blur-[2px]" />
+          <div className="hidden sm:block absolute top-0 bottom-0 left-1/4 w-3 bg-black/30 blur-[2px]" />
+          <div className="hidden sm:block absolute top-0 bottom-0 left-2/4 w-3 bg-black/30 blur-[2px]" />
+          <div className="hidden sm:block absolute top-0 bottom-0 left-3/4 w-3 bg-black/30 blur-[2px]" />
 
           {/* Golden Brocade Zari Border on inner edge */}
-          <div className="absolute top-0 bottom-0 right-0 w-4 sm:w-7 bg-gradient-to-b from-[#F59E0B] via-[#FEF08A] to-[#B45309] shadow-md flex flex-col justify-around py-6">
-            {Array.from({ length: 24 }).map((_, i) => (
-              <div key={i} className="w-2 h-2 sm:w-3.5 sm:h-3.5 rounded-full bg-[#78350F] mx-auto border border-[#FEF08A]/60" />
+          <div className="absolute top-0 bottom-0 right-0 w-2 sm:w-7 bg-gradient-to-b from-[#F59E0B] via-[#FEF08A] to-[#B45309] shadow-md flex flex-col justify-around py-6">
+            {Array.from({ length: 16 }).map((_, i) => (
+              <div key={i} className="hidden sm:block w-2 h-2 sm:w-3.5 sm:h-3.5 rounded-full bg-[#78350F] mx-auto border border-[#FEF08A]/60" />
             ))}
           </div>
 
-          {/* Royal Golden Rope Tie-back with Tassels */}
-          <div className="absolute top-[48%] right-2 sm:right-5 -translate-y-1/2 w-8 sm:w-14 h-12 sm:h-20 bg-gradient-to-b from-[#FDE047] via-[#F59E0B] to-[#92400E] rounded-xl shadow-2xl border-2 border-[#FEF08A] flex flex-col items-center justify-center">
+          {/* Royal Golden Rope Tie-back with Tassels (Desktop only) */}
+          <div className="hidden sm:flex absolute top-[48%] right-2 sm:right-5 -translate-y-1/2 w-8 sm:w-14 h-12 sm:h-20 bg-gradient-to-b from-[#FDE047] via-[#F59E0B] to-[#92400E] rounded-xl shadow-2xl border-2 border-[#FEF08A] flex-col items-center justify-center">
             <span className="text-xs sm:text-base text-amber-950 font-bold">⚜️</span>
             <div className="w-2 h-4 sm:h-6 bg-[#B45309] rounded-b-md mt-1 border border-amber-300" />
           </div>
@@ -151,23 +151,23 @@ export const MandapArchitecture: React.FC<MandapArchitectureProps> = ({
       </div>
 
       {/* Right Velvet Curtain Drapes */}
-      <div className="absolute top-0 right-0 bottom-0 w-8 sm:w-28 md:w-44 lg:w-56 z-15 pointer-events-none overflow-hidden">
-        <div className="w-full h-full relative bg-gradient-to-l from-[#3B0716] via-[#7F1D1D] to-[#991B1B] shadow-[-10px_0_35px_rgba(0,0,0,0.8)] border-l-2 border-[#F59E0B]/70">
+      <div className="absolute top-0 right-0 bottom-0 w-2 sm:w-28 md:w-44 lg:w-56 z-10 pointer-events-none overflow-hidden">
+        <div className="w-full h-full relative bg-gradient-to-l from-[#3B0716] via-[#7F1D1D] to-[#991B1B] shadow-[-6px_0_20px_rgba(0,0,0,0.7)] border-l border-[#F59E0B]/70">
           {/* Vertical Pleated Folds Texture */}
           <div className="absolute inset-0 bg-gradient-to-l from-black/50 via-transparent to-black/35" />
-          <div className="absolute top-0 bottom-0 right-1/4 w-3 bg-black/30 blur-[2px]" />
-          <div className="absolute top-0 bottom-0 right-2/4 w-3 bg-black/30 blur-[2px]" />
-          <div className="absolute top-0 bottom-0 right-3/4 w-3 bg-black/30 blur-[2px]" />
+          <div className="hidden sm:block absolute top-0 bottom-0 right-1/4 w-3 bg-black/30 blur-[2px]" />
+          <div className="hidden sm:block absolute top-0 bottom-0 right-2/4 w-3 bg-black/30 blur-[2px]" />
+          <div className="hidden sm:block absolute top-0 bottom-0 right-3/4 w-3 bg-black/30 blur-[2px]" />
 
           {/* Golden Brocade Zari Border on inner edge */}
-          <div className="absolute top-0 bottom-0 left-0 w-4 sm:w-7 bg-gradient-to-b from-[#F59E0B] via-[#FEF08A] to-[#B45309] shadow-md flex flex-col justify-around py-6">
-            {Array.from({ length: 24 }).map((_, i) => (
-              <div key={i} className="w-2 h-2 sm:w-3.5 sm:h-3.5 rounded-full bg-[#78350F] mx-auto border border-[#FEF08A]/60" />
+          <div className="absolute top-0 bottom-0 left-0 w-2 sm:w-7 bg-gradient-to-b from-[#F59E0B] via-[#FEF08A] to-[#B45309] shadow-md flex flex-col justify-around py-6">
+            {Array.from({ length: 16 }).map((_, i) => (
+              <div key={i} className="hidden sm:block w-2 h-2 sm:w-3.5 sm:h-3.5 rounded-full bg-[#78350F] mx-auto border border-[#FEF08A]/60" />
             ))}
           </div>
 
-          {/* Royal Golden Rope Tie-back with Tassels */}
-          <div className="absolute top-[48%] left-2 sm:left-5 -translate-y-1/2 w-8 sm:w-14 h-12 sm:h-20 bg-gradient-to-b from-[#FDE047] via-[#F59E0B] to-[#92400E] rounded-xl shadow-2xl border-2 border-[#FEF08A] flex flex-col items-center justify-center">
+          {/* Royal Golden Rope Tie-back with Tassels (Desktop only) */}
+          <div className="hidden sm:flex absolute top-[48%] left-2 sm:left-5 -translate-y-1/2 w-8 sm:w-14 h-12 sm:h-20 bg-gradient-to-b from-[#FDE047] via-[#F59E0B] to-[#92400E] rounded-xl shadow-2xl border-2 border-[#FEF08A] flex-col items-center justify-center">
             <span className="text-xs sm:text-base text-amber-950 font-bold">⚜️</span>
             <div className="w-2 h-4 sm:h-6 bg-[#B45309] rounded-b-md mt-1 border border-amber-300" />
           </div>
@@ -175,10 +175,10 @@ export const MandapArchitecture: React.FC<MandapArchitectureProps> = ({
       </div>
 
       {/* ──────────────────────────────────────────────────────────────────────
-          4. GRAND CARVED GOLDEN MANDAP PILLARS (STAMBH)
+          4. GRAND CARVED GOLDEN MANDAP PILLARS (STAMBH - Desktop/Tablet)
          ────────────────────────────────────────────────────────────────────── */}
       {/* Left Pillar */}
-      <div className="absolute top-0 left-6 sm:left-24 md:left-40 lg:left-52 bottom-0 w-3 sm:w-8 md:w-10 z-16 pointer-events-none">
+      <div className="hidden sm:block absolute top-0 left-24 md:left-40 lg:left-52 bottom-0 w-8 md:w-10 z-11 pointer-events-none">
         <div className="w-full h-full bg-gradient-to-r from-[#78350F] via-[#F59E0B] to-[#FEF08A] shadow-[0_0_15px_rgba(245,158,11,0.4)] border-x-2 border-[#451A03] relative">
           {/* Pillar Pediment / Capital Rings with Golden Filigree */}
           <div className="absolute top-0 inset-x-0 h-6 sm:h-10 bg-gradient-to-b from-[#FEF08A] via-[#F59E0B] to-[#78350F] border-b-2 border-amber-950" />
@@ -196,8 +196,8 @@ export const MandapArchitecture: React.FC<MandapArchitectureProps> = ({
         </div>
       </div>
 
-      {/* Right Pillar */}
-      <div className="absolute top-0 right-6 sm:right-24 md:right-40 lg:right-52 bottom-0 w-3 sm:w-8 md:w-10 z-16 pointer-events-none">
+      {/* Right Pillar (Desktop/Tablet) */}
+      <div className="hidden sm:block absolute top-0 right-24 md:right-40 lg:right-52 bottom-0 w-8 md:w-10 z-11 pointer-events-none">
         <div className="w-full h-full bg-gradient-to-l from-[#78350F] via-[#F59E0B] to-[#FEF08A] shadow-[0_0_15px_rgba(245,158,11,0.4)] border-x-2 border-[#451A03] relative">
           <div className="absolute top-0 inset-x-0 h-6 sm:h-10 bg-gradient-to-b from-[#FEF08A] via-[#F59E0B] to-[#78350F] border-b-2 border-amber-950" />
           <div className="absolute top-1/4 inset-x-0 h-3 sm:h-4 bg-[#451A03] border-y border-[#FEF08A]" />
@@ -299,13 +299,13 @@ export const MandapArchitecture: React.FC<MandapArchitectureProps> = ({
       {/* ──────────────────────────────────────────────────────────────────────
           6. CONSECRATED SACRED ALTAR DAIS (CHAURANG / PEETHA) & GLOWING SAMAI
          ────────────────────────────────────────────────────────────────────── */}
-      <div className="absolute bottom-0 inset-x-0 h-28 sm:h-36 z-15 pointer-events-none flex justify-center items-end">
-        <div className="w-full max-w-5xl h-22 sm:h-28 bg-gradient-to-t from-[#1F020B] via-[#4A051B] to-[#7F1D1D] rounded-t-3xl border-t-3 border-[#F59E0B] shadow-[0_-12px_45px_rgba(245,158,11,0.35)] relative overflow-hidden flex flex-col items-center">
+      <div className="absolute bottom-0 inset-x-0 h-8 sm:h-36 z-5 pointer-events-none flex justify-center items-end">
+        <div className="w-full max-w-5xl h-8 sm:h-28 bg-gradient-to-t from-[#1F020B] via-[#4A051B] to-[#7F1D1D] rounded-t-3xl border-t-2 sm:border-t-3 border-[#F59E0B] shadow-[0_-8px_30px_rgba(245,158,11,0.25)] relative overflow-hidden flex flex-col items-center">
           {/* Golden Zari Lace Trim on Dais */}
-          <div className="w-full h-3 bg-gradient-to-r from-[#D97706] via-[#FEF08A] to-[#D97706] shadow-md" />
+          <div className="w-full h-1.5 sm:h-3 bg-gradient-to-r from-[#D97706] via-[#FEF08A] to-[#D97706] shadow-md" />
           
-          {/* Sacred Auspicious Shloka on Altar */}
-          <div className="mt-2 text-amber-200 font-festive text-xs sm:text-base font-extrabold flex items-center gap-2 sm:gap-4 tracking-widest opacity-95 drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)]">
+          {/* Sacred Auspicious Shloka on Altar (Tablet & Desktop only) */}
+          <div className="mt-2 text-amber-200 font-festive text-xs sm:text-base font-extrabold hidden sm:flex items-center gap-2 sm:gap-4 tracking-widest opacity-95 drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)]">
             <span>🌸</span>
             <span>॥ श्री गणेशाय नमः • सुखकर्ता दुःखहर्ता ॥</span>
             <span>🌸</span>

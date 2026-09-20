@@ -45,17 +45,63 @@ const STORAGE_KEYS = {
   MUTED: 'bappa_audio_muted',
 };
 
+export interface DevotionalSong {
+  id: string;
+  name: string;
+  subtitle: string;
+  icon: string;
+  path: string;
+}
+
+export const DEVOTIONAL_PLAYLIST: DevotionalSong[] = [
+  {
+    id: 'jai_ganesh',
+    name: 'Jai Ganesh Deva (Aarti)',
+    subtitle: 'माता जाकी पार्वती पिता महादेवा • Iconic Traditional Aarti',
+    icon: '🪔',
+    path: '/audio/music/jai_ganesh_deva.mp3',
+  },
+  {
+    id: 'sukhkarta',
+    name: 'Sukhkarta Dukhharta',
+    subtitle: 'जय देव जय मंगल मूर्ती • Traditional Marathi Aarti',
+    icon: '🌺',
+    path: '/audio/music/sukhkarta_dukhharta.mp3',
+  },
+  {
+    id: 'dhol_tasha',
+    name: 'Nashik Dhol Tasha Utsav',
+    subtitle: 'पुणे-नाशिक ढोल ताशा वाद्य • High-Energy Festival Beats',
+    icon: '🥁',
+    path: '/audio/music/dhol_tasha_rhythm.wav',
+  },
+  {
+    id: 'ganpati_vandana',
+    name: 'Ganpati Vandana & Shloka',
+    subtitle: 'वक्रतुण्ड महाकाय सूर्यकोटि समप्रभ • Sacred Temple Chants',
+    icon: '🕉️',
+    path: '/audio/music/ganpati_vandana.ogg',
+  },
+  {
+    id: 'mandap_ambience',
+    name: 'Temple Sitar & Flute Sanctum',
+    subtitle: 'मंदिर संकीर्तन • Auspicious Classical Aarti Melodies',
+    icon: '🪕',
+    path: '/audio/music/mandap_ambience.wav',
+  },
+];
+
 const MUSIC_SRC_MAP: Record<string, string> = {
-  home: '/audio/music/sukhkarta_dukhharta.mp3',
+  home: '/audio/music/jai_ganesh_deva.mp3', // Jai Ganesh Deva (Mata Jaki Parvati)
   mandap: '/audio/music/jai_ganesh_deva.mp3',
-  dhol: '/audio/music/pandi_melam.ogg',
+  dhol: '/audio/music/dhol_tasha_rhythm.wav', // Pure high-energy Dhol Tasha
   modak: '/audio/music/modak_playful.wav',
   quiz: '/audio/music/ganpati_vandana.ogg',
   celebration: '/audio/music/celebration_victory.wav',
   // Aliases
-  festival: '/audio/music/sukhkarta_dukhharta.mp3',
-  calm: '/audio/music/jai_ganesh_deva.mp3',
-  gameplay: '/audio/music/pandi_melam.ogg',
+  festival: '/audio/music/jai_ganesh_deva.mp3',
+  calm: '/audio/music/sukhkarta_dukhharta.mp3',
+  gameplay: '/audio/music/dhol_tasha_rhythm.wav',
 };
 
 const SFX_SRC_MAP: Record<SfxType, string> = {
@@ -357,6 +403,14 @@ class AudioManager {
     return this.isMuted;
   }
 
+  public isMusicActive(): boolean {
+    return this.isMusicPlaying && this.musicEnabled && !this.isMuted;
+  }
+
+  public isMuteActive(): boolean {
+    return this.isMuted;
+  }
+
   private effectiveMusicVolume(): number {
     if (!this.musicEnabled || this.isMuted) return 0;
     return Math.max(0, Math.min(1, this.musicVolume * this.masterVolume));
@@ -417,9 +471,59 @@ class AudioManager {
   }
 
   private normalizeTrack(track: MusicTrackType): MusicTrackType {
-    if (track === 'calm' || track === 'festival') return 'home';
+    if (track === 'festival') return 'home';
     if (track === 'gameplay') return 'dhol';
     return track;
+  }
+
+  public playDevotionalSong(songId: string, crossfadeDuration = 1.0) {
+    const found = DEVOTIONAL_PLAYLIST.find((s) => s.id === songId);
+    if (!found) return;
+
+    if (!this.musicEnabled) {
+      this.musicEnabled = true;
+      try {
+        localStorage.setItem(STORAGE_KEYS.MUSIC_ENABLED, 'true');
+      } catch {}
+    }
+
+    if (!this.isUnlocked) {
+      this.init();
+    }
+
+    this.startCustomTrack(found.path, crossfadeDuration);
+  }
+
+  private startCustomTrack(src: string, crossfadeDuration = 1.0) {
+    if (this.crossfadeTimer) {
+      clearInterval(this.crossfadeTimer);
+      this.crossfadeTimer = null;
+    }
+
+    if (this.activeMusicAudio) {
+      if (this.fadingMusicAudio) {
+        this.fadingMusicAudio.pause();
+        this.fadingMusicAudio.src = '';
+      }
+      this.fadingMusicAudio = this.activeMusicAudio;
+      this.fadeOutAndRelease(this.fadingMusicAudio, crossfadeDuration);
+    }
+
+    const newAudio = new Audio(src);
+    newAudio.loop = true;
+    newAudio.preload = 'auto';
+    newAudio.volume = 0;
+    this.activeMusicAudio = newAudio;
+
+    newAudio
+      .play()
+      .then(() => {
+        this.isMusicPlaying = true;
+        this.fadeIn(newAudio, crossfadeDuration);
+      })
+      .catch((err) => {
+        console.warn('[AUDIO] Devotional track playback deferred:', err);
+      });
   }
 
   private startTrack(track: MusicTrackType, crossfadeDuration = 1.2) {

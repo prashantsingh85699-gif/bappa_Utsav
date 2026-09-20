@@ -363,3 +363,112 @@
   animation: stageRangoliPulse 7s infinite ease-in-out;
 }
 
+/* ─────────────────────────────────────────────────────────────
+   DIVINE LIGHTNING & CELESTIAL AURA ANIMATIONS
+   ───────────────────────────────────────────────────────────── */
+
+@keyframes lightningArcFlash {
+  0%, 100% {
+    opacity: 0.15;
+    stroke-dashoffset: 40;
+    filter: drop-shadow(0 0 2px #F59E0B);
+  }
+  15% {
+    opacity: 0.9;
+    stroke-dashoffset: 0;
+    filter: drop-shadow(0 0 12px #FDE047) drop-shadow(0 0 20px #F59E0B);
+  }
+  20% {
+    opacity: 0.3;
+    stroke-dashoffset: 10;
+  }
+  25% {
+    opacity: 1;
+    stroke-dashoffset: 0;
+    filter: drop-shadow(0 0 16px #FFF) drop-shadow(0 0 24px #F59E0B);
+  }
+  40%, 80% {
+    opacity: 0.2;
+    stroke-dashoffset: 25;
+  }
+  85% {
+    opacity: 0.85;
+    stroke-dashoffset: 5;
+    filter: drop-shadow(0 0 10px #FDE047);
+  }
+}
+
+@keyframes divineChakraSpin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes divineAuraPulse {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 0.75;
+  }
+  50% {
+    transform: scale(1.08);
+    opacity: 1;
+    filter: drop-shadow(0 0 35px rgba(245, 158, 11, 0.6));
+  }
+}
+
+@keyframes blessingFloatUp {
+  0% {
+    opacity: 0;
+    transform: translate(-50%, 10px) scale(0.9);
+  }
+  20% {
+    opacity: 1;
+    transform: translate(-50%, -5px) scale(1.05);
+  }
+  70% {
+    opacity: 1;
+    transform: translate(-50%, -20px) scale(1);
+  }
+  100% {
+    opacity: 0;
+    transform: translate(-50%, -35px) scale(0.95);
+  }
+}
+
+.animate-lightning-arc-1 {
+  stroke-dasharray: 20 10;
+  animation: lightningArcFlash 3.2s infinite ease-in-out;
+}
+
+.animate-lightning-arc-2 {
+  stroke-dasharray: 25 12;
+  animation: lightningArcFlash 2.4s infinite ease-in-out 0.6s;
+}
+
+.animate-lightning-arc-3 {
+  stroke-dasharray: 18 8;
+  animation: lightningArcFlash 2.8s infinite ease-in-out 1.2s;
+}
+
+.animate-chakra-spin-slow {
+  transform-origin: center center;
+  animation: divineChakraSpin 40s linear infinite;
+}
+
+.animate-chakra-spin-reverse {
+  transform-origin: center center;
+  animation: divineChakraSpin 55s linear infinite reverse;
+}
+
+.animate-divine-aura-pulse {
+  animation: divineAuraPulse 3s infinite ease-in-out;
+}
+
+.animate-blessing-float {
+  animation: blessingFloatUp 2.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+
