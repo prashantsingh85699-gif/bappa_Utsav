@@ -10,8 +10,8 @@ interface BottomNavProps {
 }
 
 export const BottomNav: React.FC<BottomNavProps> = ({ currentScreen, onNavigate, onOpenSettings }) => {
-  if (currentScreen === 'splash' || ['dhol', 'modak'].includes(currentScreen)) {
-    // Hide bottom nav during active arcade/rhythm action to avoid accidental touches
+  if (currentScreen === 'splash' || ['dhol', 'modak', 'mandap'].includes(currentScreen)) {
+    // Hide bottom nav during active arcade/creative games to avoid accidental touches and maximize stage space
     return null;
   }
 

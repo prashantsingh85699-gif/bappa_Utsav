@@ -299,7 +299,7 @@ export const MandapDesignerGame: React.FC<MandapDesignerGameProps> = ({
   };
 
   return (
-    <div className="max-w-5xl mx-auto px-2 sm:px-3 py-2 sm:py-3 pb-24 sm:pb-4 flex flex-col space-y-2 sm:space-y-3 select-none animate-fade-in relative">
+    <div className="w-full max-w-5xl mx-auto px-2 sm:px-3 py-2 sm:py-3 flex flex-col space-y-2 sm:space-y-3 select-none animate-fade-in relative box-border overflow-x-hidden">
       {/* Toast Banner for Saved Design */}
       {saveToast && (
         <div className="fixed top-16 left-1/2 -translate-x-1/2 z-50 px-4 py-2 rounded-2xl bg-emerald-600/90 text-white font-bold text-xs sm:text-sm shadow-xl flex items-center gap-2 border border-emerald-400 animate-toast-in">
@@ -308,45 +308,48 @@ export const MandapDesignerGame: React.FC<MandapDesignerGameProps> = ({
         </div>
       )}
 
-      {/* Top Header Bar */}
-      <div className="flex items-center justify-between gap-2">
-        <Button
-          variant="secondary-glass"
-          size="sm"
-          onClick={onExit}
-          icon={<ArrowLeft className="w-4 h-4 text-amber-400" />}
-        >
-          Exit
-        </Button>
+      {/* Top Header Bar - Compact & strictly responsive */}
+      <div className="flex items-center justify-between gap-1.5 sm:gap-2 w-full min-w-0">
+        <div className="flex items-center gap-1.5 min-w-0">
+          <Button
+            variant="secondary-glass"
+            size="sm"
+            onClick={onExit}
+            icon={<ArrowLeft className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-amber-400" />}
+            className="px-2 py-1 sm:px-3 sm:py-1.5 text-xs flex-shrink-0"
+          >
+            Exit
+          </Button>
 
-        <div className="text-center">
-          <h2 className="text-base sm:text-xl font-bold font-festive text-amber-100 flex items-center justify-center gap-1.5">
-            <span>🌸 Mandap Designer</span>
-          </h2>
-          <span className="text-[10px] sm:text-xs text-amber-300 font-semibold">
-            Score: <b className="text-yellow-300">{currentCreativeScore.score} pts</b> • {currentCreativeScore.rating}
-          </span>
+          <div className="text-left min-w-0">
+            <h2 className="text-xs sm:text-lg font-bold font-festive text-amber-100 flex items-center gap-1 leading-tight truncate">
+              <span>🌸 Mandap Designer</span>
+            </h2>
+            <span className="text-[9px] sm:text-xs text-amber-300 font-semibold block leading-none truncate">
+              Score: <b className="text-yellow-300">{currentCreativeScore.score} pts</b>
+            </span>
+          </div>
         </div>
 
         {/* Top Actions: Undo, Save, Present */}
-        <div className="flex items-center gap-1.5 sm:gap-2">
+        <div className="flex items-center gap-1 sm:gap-1.5 flex-shrink-0">
           {history.length > 0 && (
             <button
               onClick={handleUndo}
-              className="p-1.5 sm:px-2.5 sm:py-1.5 rounded-xl bg-black/40 hover:bg-amber-500/20 text-amber-300 border border-amber-500/30 text-xs font-bold active:scale-95 transition-all flex items-center gap-1"
+              className="p-1 sm:px-2.5 sm:py-1.5 rounded-xl bg-black/40 hover:bg-amber-500/20 text-amber-300 border border-amber-500/30 text-xs font-bold active:scale-95 transition-all flex items-center gap-1"
               title="Undo last change"
             >
-              <Undo2 className="w-4 h-4" />
+              <Undo2 className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
               <span className="hidden sm:inline">Undo</span>
             </button>
           )}
 
           <button
             onClick={handleSaveOnly}
-            className="p-1.5 sm:px-2.5 sm:py-1.5 rounded-xl bg-black/40 hover:bg-amber-500/20 text-amber-200 border border-amber-500/30 text-xs font-bold active:scale-95 transition-all flex items-center gap-1"
+            className="p-1 sm:px-2.5 sm:py-1.5 rounded-xl bg-black/40 hover:bg-amber-500/20 text-amber-200 border border-amber-500/30 text-xs font-bold active:scale-95 transition-all flex items-center gap-1"
             title="Save design to profile"
           >
-            <Save className="w-4 h-4 text-amber-400" />
+            <Save className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-amber-400" />
             <span className="hidden sm:inline">Save</span>
           </button>
 
@@ -356,30 +359,30 @@ export const MandapDesignerGame: React.FC<MandapDesignerGameProps> = ({
             shine
             glow
             onClick={handleOpenPresentation}
-            icon={<Sparkles className="w-4 h-4 fill-slate-950" />}
-            className="whitespace-nowrap"
+            icon={<Sparkles className="w-3.5 h-3.5 sm:w-4 sm:h-4 fill-slate-950" />}
+            className="px-2.5 py-1 sm:px-3 sm:py-1.5 text-xs whitespace-nowrap shadow-sm"
           >
-            <span><span className="hidden sm:inline">Finish & </span>Present</span>
+            <span>Present</span>
           </Button>
         </div>
       </div>
 
-      {/* Main Mandap Stage Viewport - Fully responsive for mobile & desktop */}
+      {/* Main Mandap Stage Viewport - 100% full width and centered on mobile */}
       <div
         ref={stageRef}
         onPointerMove={handlePointerMoveStage}
         onPointerUp={handlePointerUpStage}
         onClick={() => setSelectedInstanceId(null)}
-        className="relative w-full h-[260px] xs:h-[300px] sm:h-[420px] md:h-[460px] rounded-3xl border-2 border-amber-500/40 overflow-hidden shadow-[0_8px_32px_rgba(0,0,0,0.5)] festive-glass-glow cursor-crosshair select-none touch-none"
+        className="relative w-full max-w-full h-[280px] xs:h-[320px] sm:h-[420px] md:h-[460px] rounded-2xl sm:rounded-3xl border-2 border-amber-500/40 overflow-hidden shadow-[0_8px_32px_rgba(0,0,0,0.5)] festive-glass-glow cursor-crosshair select-none touch-none box-border"
       >
         {/* Ambient Divine Atmosphere Glow */}
         <div className="absolute inset-0 bg-gradient-to-b from-[#18042B] via-[#2A0845] to-[#120224] pointer-events-none opacity-95" />
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_35%,_rgba(245,158,11,0.22),_transparent_70%)] pointer-events-none" />
         <div className="absolute top-0 left-0 right-0 h-16 bg-gradient-to-b from-amber-500/20 to-transparent pointer-events-none" />
 
-        {/* Lord Ganesha Murti in Center Stage */}
+        {/* Lord Ganesha Murti Dead Center in Stage */}
         <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 pointer-events-none z-10 flex flex-col items-center">
-          <BappaMurti size={160} className="scale-90 xs:scale-100 sm:scale-125" />
+          <BappaMurti size={160} className="scale-95 sm:scale-120" />
         </div>
 
         {/* Placed Items on Stage */}
@@ -468,10 +471,10 @@ export const MandapDesignerGame: React.FC<MandapDesignerGameProps> = ({
         </div>
       </div>
 
-      {/* 8-Category Decoration Inventory Drawer */}
-      <div className="festive-glass rounded-3xl p-3 sm:p-4 border border-amber-500/30 space-y-2.5 shadow-xl">
+      {/* 8-Category Decoration Inventory Drawer - Strictly constrained */}
+      <div className="festive-glass rounded-2xl sm:rounded-3xl p-2 sm:p-4 border border-amber-500/30 space-y-2 sm:space-y-2.5 shadow-xl w-full max-w-full overflow-hidden box-border">
         {/* Category Filter Tabs */}
-        <div className="flex items-center gap-1.5 sm:gap-2 overflow-x-auto pb-1.5 no-scrollbar touch-pan-x">
+        <div className="flex items-center gap-1 sm:gap-2 overflow-x-auto pb-1 no-scrollbar touch-pan-x w-full">
           {categories.map((cat) => (
             <button
               key={cat.id}
@@ -479,7 +482,7 @@ export const MandapDesignerGame: React.FC<MandapDesignerGameProps> = ({
                 audioManager.playClick();
                 setActiveCategory(cat.id);
               }}
-              className={`px-3 py-1.5 rounded-xl text-xs font-bold whitespace-nowrap transition-all active:scale-95 flex items-center gap-1 ${
+              className={`px-2.5 py-1 sm:px-3 sm:py-1.5 rounded-xl text-[11px] sm:text-xs font-bold whitespace-nowrap transition-all active:scale-95 flex items-center gap-1 flex-shrink-0 ${
                 activeCategory === cat.id
                   ? 'bg-gradient-to-r from-amber-400 to-yellow-500 text-slate-950 font-black shadow-md'
                   : 'bg-black/40 border border-amber-500/25 text-amber-200 hover:border-amber-400/50'
@@ -492,7 +495,7 @@ export const MandapDesignerGame: React.FC<MandapDesignerGameProps> = ({
         </div>
 
         {/* Decoration Inventory Items Grid */}
-        <div className="grid grid-cols-3 sm:grid-cols-6 md:grid-cols-8 gap-2 max-h-44 overflow-y-auto pr-1">
+        <div className="grid grid-cols-2 xs:grid-cols-3 sm:grid-cols-6 md:grid-cols-8 gap-1.5 sm:gap-2 max-h-40 sm:max-h-44 overflow-y-auto pr-1 w-full box-border">
           {availableItems.map((item) => {
             const isUnlocked = unlockedItemIds.includes(item.id) || item.requiredLevel <= playerLevel;
 
@@ -500,27 +503,27 @@ export const MandapDesignerGame: React.FC<MandapDesignerGameProps> = ({
               <button
                 key={item.id}
                 onClick={() => handleAddItem(item)}
-                className={`p-2 rounded-2xl border text-center flex flex-col items-center justify-between transition-all active:scale-95 ${
+                className={`p-1.5 sm:p-2 rounded-xl sm:rounded-2xl border text-center flex flex-col items-center justify-between transition-all active:scale-95 min-w-0 w-full overflow-hidden ${
                   isUnlocked
                     ? 'bg-black/45 border-amber-500/30 hover:border-amber-400 hover:bg-amber-500/15 cursor-pointer shadow-sm'
                     : 'bg-black/30 border-purple-900/40 opacity-60 hover:opacity-80 cursor-pointer'
                 }`}
               >
-                <div className="w-8 h-8 flex items-center justify-center text-2xl mb-1">
+                <div className="w-7 h-7 sm:w-8 sm:h-8 flex items-center justify-center text-xl sm:text-2xl mb-1 flex-shrink-0">
                   {item.icon}
                 </div>
-                <span className="text-[10px] sm:text-[11px] font-semibold text-amber-100 truncate w-full leading-tight">
+                <span className="text-[10px] sm:text-[11px] font-semibold text-amber-100 truncate w-full leading-tight block">
                   {item.name}
                 </span>
 
                 {/* Unlocked status or Lock Requirement Badge */}
                 {isUnlocked ? (
-                  <span className="text-[9px] font-bold text-amber-400/80 mt-0.5">
+                  <span className="text-[9px] font-bold text-amber-400/80 mt-0.5 block truncate w-full">
                     + Add
                   </span>
                 ) : (
-                  <span className="flex items-center gap-0.5 text-[9px] font-bold text-rose-300 mt-0.5">
-                    <Lock className="w-2.5 h-2.5 text-rose-400" />
+                  <span className="flex items-center justify-center gap-0.5 text-[9px] font-bold text-rose-300 mt-0.5 w-full">
+                    <Lock className="w-2.5 h-2.5 text-rose-400 flex-shrink-0" />
                     <span>Lv.{item.requiredLevel}</span>
                   </span>
                 )}
