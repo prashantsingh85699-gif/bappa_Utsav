@@ -164,7 +164,7 @@ export const SettingsModal: React.FC<SettingsModalProps> = ({
                   </div>
                   <div>
                     <h4 className="font-bold text-amber-200 text-sm">Festival Ambience Music</h4>
-                    <p className="text-xs text-amber-300/70">Original instrumental Tanpura & Bansuri</p>
+                    <p className="text-xs text-amber-300/70">Traditional Ganesh Aartis & Pune Dhol Tasha</p>
                   </div>
                 </div>
                 <button

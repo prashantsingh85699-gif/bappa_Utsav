@@ -125,7 +125,7 @@ export const HomeScreen: React.FC<HomeScreenProps> = ({
                 {musicEnabled ? 'Music On' : 'Music Off'}
               </span>
               <span className="text-[9px] text-amber-400/70 hidden sm:inline">
-                {musicEnabled ? 'Tanpura' : 'Muted'}
+                {musicEnabled ? 'Ganesh Aarti' : 'Muted'}
               </span>
             </div>
 

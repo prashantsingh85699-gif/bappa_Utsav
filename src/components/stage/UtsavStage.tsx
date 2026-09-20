@@ -385,12 +385,12 @@ export const UtsavStage: React.FC<UtsavStageProps> = ({
       />
 
       {/* ──────────────────────────────────────────────────────────────────────
-          READABILITY SCRIM / VIGNETTE (CRITICAL FOR UI HIGH CONTRAST)
+          READABILITY SCRIM / VIGNETTE (BALANCED FOR VIBRANT MANDAP & TEXT CONTRAST)
          ────────────────────────────────────────────────────────────────────── */}
       <div
-        className="absolute inset-0 pointer-events-none z-35 bg-gradient-radial from-transparent via-[#0E021C]/45 to-[#0E021C]/85"
+        className="absolute inset-0 pointer-events-none z-35"
         style={{
-          background: 'radial-gradient(ellipse at center, rgba(14,2,28,0.25) 0%, rgba(14,2,28,0.65) 60%, rgba(14,2,28,0.88) 100%)',
+          background: 'radial-gradient(ellipse at center, rgba(14,2,28,0.08) 0%, rgba(14,2,28,0.28) 60%, rgba(14,2,28,0.62) 100%)',
         }}
       />
 

@@ -318,7 +318,7 @@ const AppContent: React.FC = () => {
       },
     });
     showToast({
-      message: nextMusic ? 'Festive Tanpura Ambience: ON 🪔' : 'Music Ambience Muted',
+      message: nextMusic ? 'Ganesh Aarti & Utsav Music: ON 🪔' : 'Music Ambience Muted',
       type: 'info',
       duration: 2000,
     });

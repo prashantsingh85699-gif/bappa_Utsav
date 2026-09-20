@@ -46,16 +46,16 @@ const STORAGE_KEYS = {
 };
 
 const MUSIC_SRC_MAP: Record<string, string> = {
-  home: '/audio/music/home_sanctum.wav',
-  mandap: '/audio/music/mandap_ambience.wav',
-  dhol: '/audio/music/dhol_tasha_rhythm.wav',
+  home: '/audio/music/sukhkarta_dukhharta.mp3',
+  mandap: '/audio/music/jai_ganesh_deva.mp3',
+  dhol: '/audio/music/pandi_melam.ogg',
   modak: '/audio/music/modak_playful.wav',
-  quiz: '/audio/music/quiz_meditation.wav',
+  quiz: '/audio/music/ganpati_vandana.ogg',
   celebration: '/audio/music/celebration_victory.wav',
   // Aliases
-  festival: '/audio/music/home_sanctum.wav',
-  calm: '/audio/music/home_sanctum.wav',
-  gameplay: '/audio/music/dhol_tasha_rhythm.wav',
+  festival: '/audio/music/sukhkarta_dukhharta.mp3',
+  calm: '/audio/music/jai_ganesh_deva.mp3',
+  gameplay: '/audio/music/pandi_melam.ogg',
 };
 
 const SFX_SRC_MAP: Record<SfxType, string> = {
