@@ -192,10 +192,10 @@ export const BappaMurti: React.FC<BappaMurtiProps> = ({
       <svg
         width={size}
         height={size}
-        viewBox="0 0 400 400"
+        viewBox="-25 -25 450 450"
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
-        className={`relative transition-transform duration-300 ${
+        className={`relative transition-transform duration-300 overflow-visible ${
           interactive ? 'group-hover:scale-105 active:scale-95' : ''
         } drop-shadow-[0_12px_28px_rgba(245,158,11,0.5)] select-none`}
       >

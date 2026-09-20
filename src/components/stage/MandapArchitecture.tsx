@@ -65,8 +65,8 @@ export const MandapArchitecture: React.FC<MandapArchitectureProps> = ({
       {/* ──────────────────────────────────────────────────────────────────────
           2. CENTRAL CARVED GOLDEN MAKHAR (TEMPLE SHRINE ARCH BEHIND BAPPA)
          ────────────────────────────────────────────────────────────────────── */}
-      <div className="absolute top-[28%] sm:top-[36%] left-1/2 -translate-x-1/2 -translate-y-1/2 pointer-events-none z-5">
-        <div className={`w-[260px] sm:w-[480px] md:w-[680px] h-[260px] sm:h-[480px] md:h-[680px] transition-transform ${
+      <div className="absolute top-[30%] sm:top-[36%] left-1/2 -translate-x-1/2 -translate-y-1/2 pointer-events-none z-5">
+        <div className={`w-[220px] xs:w-[260px] sm:w-[480px] md:w-[680px] h-[220px] xs:h-[260px] sm:h-[480px] md:h-[680px] transition-transform ${
           reducedMotion ? 'opacity-50' : 'animate-pulse-glow opacity-60'
         }`}>
           <svg viewBox="0 0 500 500" fill="none" className="w-full h-full drop-shadow-[0_0_25px_rgba(251,191,36,0.55)]">
@@ -222,7 +222,7 @@ export const MandapArchitecture: React.FC<MandapArchitectureProps> = ({
           viewBox="0 0 1440 140"
           fill="none"
           preserveAspectRatio="none"
-          className="w-full h-20 sm:h-28 md:h-36 drop-shadow-[0_12px_30px_rgba(0,0,0,0.9)]"
+          className="w-full h-12 sm:h-28 md:h-36 drop-shadow-[0_12px_30px_rgba(0,0,0,0.9)]"
         >
           <defs>
             <linearGradient id="grandArchGold" x1="0%" y1="0%" x2="0%" y2="100%">
