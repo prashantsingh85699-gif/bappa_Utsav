@@ -65,8 +65,8 @@ export const MandapArchitecture: React.FC<MandapArchitectureProps> = ({
       {/* ──────────────────────────────────────────────────────────────────────
           2. CENTRAL CARVED GOLDEN MAKHAR (TEMPLE SHRINE ARCH BEHIND BAPPA)
          ────────────────────────────────────────────────────────────────────── */}
-      <div className="absolute top-[30%] sm:top-[36%] left-1/2 -translate-x-1/2 -translate-y-1/2 pointer-events-none z-5">
-        <div className={`w-[360px] sm:w-[560px] md:w-[680px] h-[360px] sm:h-[560px] md:h-[680px] transition-transform ${
+      <div className="absolute top-[28%] sm:top-[36%] left-1/2 -translate-x-1/2 -translate-y-1/2 pointer-events-none z-5">
+        <div className={`w-[260px] sm:w-[480px] md:w-[680px] h-[260px] sm:h-[480px] md:h-[680px] transition-transform ${
           reducedMotion ? 'opacity-50' : 'animate-pulse-glow opacity-60'
         }`}>
           <svg viewBox="0 0 500 500" fill="none" className="w-full h-full drop-shadow-[0_0_25px_rgba(251,191,36,0.55)]">
@@ -127,7 +127,7 @@ export const MandapArchitecture: React.FC<MandapArchitectureProps> = ({
           3. ROYAL CRIMSON & GOLD VELVET DRAPED PANDAL CURTAINS (LEFT & RIGHT)
          ────────────────────────────────────────────────────────────────────── */}
       {/* Left Velvet Curtain Drapes */}
-      <div className="absolute top-0 left-0 bottom-0 w-16 sm:w-36 md:w-52 lg:w-64 z-15 pointer-events-none overflow-hidden">
+      <div className="absolute top-0 left-0 bottom-0 w-8 sm:w-28 md:w-44 lg:w-56 z-15 pointer-events-none overflow-hidden">
         <div className="w-full h-full relative bg-gradient-to-r from-[#3B0716] via-[#7F1D1D] to-[#991B1B] shadow-[10px_0_35px_rgba(0,0,0,0.8)] border-r-2 border-[#F59E0B]/70">
           {/* Vertical Pleated Folds Texture */}
           <div className="absolute inset-0 bg-gradient-to-r from-black/50 via-transparent to-black/35" />
@@ -151,7 +151,7 @@ export const MandapArchitecture: React.FC<MandapArchitectureProps> = ({
       </div>
 
       {/* Right Velvet Curtain Drapes */}
-      <div className="absolute top-0 right-0 bottom-0 w-16 sm:w-36 md:w-52 lg:w-64 z-15 pointer-events-none overflow-hidden">
+      <div className="absolute top-0 right-0 bottom-0 w-8 sm:w-28 md:w-44 lg:w-56 z-15 pointer-events-none overflow-hidden">
         <div className="w-full h-full relative bg-gradient-to-l from-[#3B0716] via-[#7F1D1D] to-[#991B1B] shadow-[-10px_0_35px_rgba(0,0,0,0.8)] border-l-2 border-[#F59E0B]/70">
           {/* Vertical Pleated Folds Texture */}
           <div className="absolute inset-0 bg-gradient-to-l from-black/50 via-transparent to-black/35" />
@@ -178,7 +178,7 @@ export const MandapArchitecture: React.FC<MandapArchitectureProps> = ({
           4. GRAND CARVED GOLDEN MANDAP PILLARS (STAMBH)
          ────────────────────────────────────────────────────────────────────── */}
       {/* Left Pillar */}
-      <div className="absolute top-0 left-12 sm:left-32 md:left-48 lg:left-60 bottom-0 w-5 sm:w-10 md:w-12 z-16 pointer-events-none">
+      <div className="absolute top-0 left-6 sm:left-24 md:left-40 lg:left-52 bottom-0 w-3 sm:w-8 md:w-10 z-16 pointer-events-none">
         <div className="w-full h-full bg-gradient-to-r from-[#78350F] via-[#F59E0B] to-[#FEF08A] shadow-[0_0_15px_rgba(245,158,11,0.4)] border-x-2 border-[#451A03] relative">
           {/* Pillar Pediment / Capital Rings with Golden Filigree */}
           <div className="absolute top-0 inset-x-0 h-6 sm:h-10 bg-gradient-to-b from-[#FEF08A] via-[#F59E0B] to-[#78350F] border-b-2 border-amber-950" />
@@ -197,7 +197,7 @@ export const MandapArchitecture: React.FC<MandapArchitectureProps> = ({
       </div>
 
       {/* Right Pillar */}
-      <div className="absolute top-0 right-12 sm:right-32 md:right-48 lg:right-60 bottom-0 w-5 sm:w-10 md:w-12 z-16 pointer-events-none">
+      <div className="absolute top-0 right-6 sm:right-24 md:right-40 lg:right-52 bottom-0 w-3 sm:w-8 md:w-10 z-16 pointer-events-none">
         <div className="w-full h-full bg-gradient-to-l from-[#78350F] via-[#F59E0B] to-[#FEF08A] shadow-[0_0_15px_rgba(245,158,11,0.4)] border-x-2 border-[#451A03] relative">
           <div className="absolute top-0 inset-x-0 h-6 sm:h-10 bg-gradient-to-b from-[#FEF08A] via-[#F59E0B] to-[#78350F] border-b-2 border-amber-950" />
           <div className="absolute top-1/4 inset-x-0 h-3 sm:h-4 bg-[#451A03] border-y border-[#FEF08A]" />

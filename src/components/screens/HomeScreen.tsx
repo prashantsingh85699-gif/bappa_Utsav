@@ -145,7 +145,7 @@ export const HomeScreen: React.FC<HomeScreenProps> = ({
       <div className="flex flex-col items-center my-auto py-2 w-full max-w-lg">
         {/* Lord Ganesha Murti with Flanking Floating Diyas */}
         <div className="relative my-2 sm:my-3">
-          <BappaMurti size={240} className="scale-95 sm:scale-105 transition-transform" />
+          <BappaMurti size={180} className="scale-100 sm:scale-110 md:scale-125 transition-transform" />
 
           {/* Flanking Floating Diyas */}
           <div className="absolute -left-5 sm:-left-12 bottom-3 animate-diya-flicker">
