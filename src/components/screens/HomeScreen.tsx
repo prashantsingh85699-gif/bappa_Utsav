@@ -59,14 +59,14 @@ export const HomeScreen: React.FC<HomeScreenProps> = ({
       {/* ─────────────────────────────────────────────────────────────
           1. TOP ROW: Devotee Profile Pill + Devotional Music Player
          ───────────────────────────────────────────────────────────── */}
-      <div className="w-full flex items-center justify-between gap-2 max-w-lg mx-auto mb-1 sm:mb-2 animate-fade-in flex-wrap sm:flex-nowrap">
+      <div className="w-full flex flex-col xs:flex-row items-stretch xs:items-center justify-between gap-2 max-w-lg mx-auto mb-2 animate-fade-in">
         {/* Devotee Profile Pill */}
         <button
           onClick={() => {
             audioManager.playClick();
             onOpenProfile();
           }}
-          className="flex items-center gap-2 px-2.5 sm:px-3 py-1.5 rounded-2xl bg-black/50 border border-amber-500/30 hover:border-amber-400 text-left active-press transition-all shadow-sm group touch-target min-w-0"
+          className="flex items-center gap-2 px-3 py-1.5 rounded-2xl bg-black/50 border border-amber-500/30 hover:border-amber-400 text-left active-press transition-all shadow-sm group touch-target min-w-0 flex-shrink-0"
           title="Edit Devotee Name & Avatar"
         >
           <div className="w-7 h-7 sm:w-8 sm:h-8 rounded-xl bg-gradient-to-tr from-amber-500 to-rose-600 flex items-center justify-center text-sm sm:text-base shadow-sm flex-shrink-0 group-hover:scale-105 transition-transform border border-amber-300/40">
@@ -74,7 +74,7 @@ export const HomeScreen: React.FC<HomeScreenProps> = ({
           </div>
           <div className="min-w-0">
             <div className="flex items-center gap-1">
-              <span className="text-xs font-bold text-amber-200 truncate max-w-[80px] sm:max-w-[120px] group-hover:text-yellow-200 transition-colors">
+              <span className="text-xs font-bold text-amber-200 truncate max-w-[140px] sm:max-w-[180px] group-hover:text-yellow-200 transition-colors">
                 {profile.nickname}
               </span>
               {authService.isVerified() && (
@@ -90,7 +90,9 @@ export const HomeScreen: React.FC<HomeScreenProps> = ({
         </button>
 
         {/* Bappa Devotional Aarti / Music Player Widget */}
-        <DevotionalMusicWidget className="ml-auto" />
+        <div className="flex justify-end w-full xs:w-auto">
+          <DevotionalMusicWidget className="w-full xs:w-auto" />
+        </div>
       </div>
 
       {/* ─────────────────────────────────────────────────────────────

@@ -89,20 +89,20 @@ export const Header: React.FC<HeaderProps> = ({
         </div>
 
         {/* Center / Right: Devotee Stats & Actions */}
-        <div className="flex items-center gap-1.5 sm:gap-2.5 flex-shrink-0">
-          {/* Devotee Profile Pill with Verified Badge */}
+        <div className="flex items-center gap-1.5 sm:gap-2 flex-shrink-0">
+          {/* Devotee Profile Pill with Integrated Level & Verified Badge */}
           <button
             onClick={() => { audioManager.playClick(); onOpenProfile(); }}
-            className={`flex items-center gap-1.5 bg-black/50 hover:bg-black/70 border rounded-2xl px-2 py-1 sm:px-2.5 sm:py-1.5 active-press transition-all ${
+            className={`flex items-center gap-1 sm:gap-1.5 bg-black/50 hover:bg-black/70 border rounded-2xl px-2 py-1 sm:px-2.5 sm:py-1.5 active-press transition-all ${
               scorePulsing 
                 ? 'border-yellow-300 shadow-[0_0_15px_rgba(251,191,36,0.6)] scale-105' 
                 : 'border-amber-500/30 hover:border-amber-400/60'
             }`}
             title="Edit Devotee Profile"
           >
-            <span className="text-base flex-shrink-0" title={levelInfo.title}>{levelInfo.badge}</span>
+            <span className="text-sm sm:text-base flex-shrink-0" title={levelInfo.title}>{levelInfo.badge}</span>
             <div className="flex flex-col text-right">
-              <span className="text-[10px] text-amber-300 font-bold uppercase leading-none hidden sm:flex items-center justify-end gap-1">
+              <span className="text-[10px] text-amber-300 font-bold uppercase leading-none hidden md:flex items-center justify-end gap-1">
                 {authService.isVerified() && (
                   <span title="Verified Devotee">
                     <ShieldCheck className="w-3 h-3 text-emerald-400" />
@@ -116,87 +116,87 @@ export const Header: React.FC<HeaderProps> = ({
             </div>
           </button>
 
-          {/* Devotee Auth Shield Button */}
+          {/* Devotee Auth Shield Button (Desktop / Tablet) */}
           {onOpenAuth && (
             <button
               onClick={() => { audioManager.playClick(); onOpenAuth(); }}
-              className={`p-1.5 sm:px-2.5 sm:py-1.5 rounded-xl border text-xs font-bold flex items-center gap-1 transition-all ${
+              className={`hidden sm:flex p-1.5 sm:px-2.5 sm:py-1.5 rounded-xl border text-xs font-bold items-center gap-1 transition-all ${
                 authService.isVerified()
                   ? 'bg-emerald-500/20 border-emerald-400/50 text-emerald-300 shadow-[0_0_10px_rgba(16,185,129,0.3)]'
                   : 'bg-amber-500/20 hover:bg-amber-500/35 border-amber-400/50 text-amber-300 animate-pulse'
               }`}
               title={authService.isVerified() ? 'Verified Devotee Account' : 'Verify Account / Login'}
             >
-              <ShieldCheck className="w-4 h-4" />
+              <ShieldCheck className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
               <span className="hidden md:inline">
                 {authService.isVerified() ? 'Verified' : 'Verify'}
               </span>
             </button>
           )}
 
-          {/* Hub Button (Tablet / Desktop) */}
+          {/* Hub Button (Desktop only) */}
           {currentScreen !== 'hub' && currentScreen !== 'home' && (
             <button
               onClick={() => { audioManager.playClick(); onNavigate('hub'); }}
-              className="hidden sm:flex items-center gap-1.5 px-3 py-2 rounded-xl bg-amber-600/20 hover:bg-amber-600/30 text-amber-200 border border-amber-500/30 text-xs font-bold active-press transition-colors touch-target"
+              className="hidden md:flex items-center gap-1.5 px-2.5 py-1.5 rounded-xl bg-amber-600/20 hover:bg-amber-600/30 text-amber-200 border border-amber-500/30 text-xs font-bold active-press transition-colors"
             >
-              <Home className="w-4 h-4" />
+              <Home className="w-3.5 h-3.5" />
               <span>Hub</span>
             </button>
           )}
 
-          {/* Leaderboard Button (Tablet / Desktop) */}
+          {/* Leaderboard Button (Desktop only) */}
           {currentScreen !== 'leaderboard' && (
             <button
               onClick={() => { audioManager.playClick(); onNavigate('leaderboard'); }}
-              className="hidden sm:flex items-center gap-1.5 px-3 py-2 rounded-xl bg-amber-500/10 hover:bg-amber-500/20 text-amber-300 border border-amber-500/30 text-xs font-bold active-press transition-colors touch-target"
+              className="hidden lg:flex items-center gap-1.5 px-2.5 py-1.5 rounded-xl bg-amber-500/10 hover:bg-amber-500/20 text-amber-300 border border-amber-500/30 text-xs font-bold active-press transition-colors"
               title="Festival Leaderboard"
               aria-label="Leaderboard"
             >
-              <Trophy className="w-4 h-4 text-amber-400" />
+              <Trophy className="w-3.5 h-3.5 text-amber-400" />
               <span>Ranks</span>
             </button>
           )}
 
-          {/* Challenge Button */}
+          {/* Challenge Button (Desktop only) */}
           {currentScreen !== 'challenge' && (
             <button
               onClick={() => { audioManager.playClick(); onNavigate('challenge'); }}
-              className="flex items-center gap-1.5 px-2.5 py-1.5 sm:px-3 sm:py-2 rounded-xl bg-gradient-to-r from-orange-600/30 to-amber-600/30 hover:from-orange-600/45 hover:to-amber-600/45 text-amber-200 border border-amber-500/40 text-xs font-bold active-press transition-all touch-target shadow-[0_0_12px_rgba(249,115,22,0.25)]"
+              className="hidden md:flex items-center gap-1 px-2.5 py-1.5 rounded-xl bg-gradient-to-r from-orange-600/30 to-amber-600/30 hover:from-orange-600/45 hover:to-amber-600/45 text-amber-200 border border-amber-500/40 text-xs font-bold active-press transition-all shadow-[0_0_12px_rgba(249,115,22,0.25)]"
               title="Festival Challenges & Rooms"
               aria-label="Festival Challenge"
             >
-              <Flame className="w-4 h-4 text-orange-400 animate-pulse" />
-              <span className="hidden xs:inline">Challenge</span>
+              <Flame className="w-3.5 h-3.5 text-orange-400 animate-pulse" />
+              <span>Challenge</span>
             </button>
           )}
 
-          {/* Sound Toggle */}
+          {/* Sound Toggle (Always visible, compact on mobile) */}
           <button
             onClick={onToggleSound}
-            className={`touch-target rounded-xl border flex items-center justify-center active-press transition-all ${
+            className={`w-8 h-8 sm:w-9 sm:h-9 rounded-xl border flex items-center justify-center active-press transition-all flex-shrink-0 ${
               soundEnabled
-                ? 'bg-amber-500/20 text-amber-300 border-amber-400/50 shadow-[0_0_12px_rgba(245,158,11,0.3)]'
+                ? 'bg-amber-500/20 text-amber-300 border-amber-400/50 shadow-[0_0_10px_rgba(245,158,11,0.25)]'
                 : 'bg-zinc-800/50 text-zinc-400 border-zinc-700/50'
             }`}
             title={soundEnabled ? 'Mute Audio' : 'Unmute Audio'}
             aria-label="Toggle Sound"
           >
             {soundEnabled ? (
-              <Volume2 className="w-4 h-4 sm:w-5 sm:h-5 text-amber-300" />
+              <Volume2 className="w-4 h-4 text-amber-300" />
             ) : (
-              <VolumeX className="w-4 h-4 sm:w-5 sm:h-5 text-zinc-400" />
+              <VolumeX className="w-4 h-4 text-zinc-400" />
             )}
           </button>
 
-          {/* Settings Button */}
+          {/* Settings Button (Always visible, compact on mobile) */}
           <button
             onClick={onOpenSettings}
-            className="touch-target rounded-xl bg-black/40 hover:bg-amber-500/20 text-amber-200 border border-amber-500/30 flex items-center justify-center active-press transition-all group"
+            className="w-8 h-8 sm:w-9 sm:h-9 rounded-xl bg-black/40 hover:bg-amber-500/20 text-amber-200 border border-amber-500/30 flex items-center justify-center active-press transition-all group flex-shrink-0"
             title="Settings & Guide"
             aria-label="Settings"
           >
-            <Settings className="w-4 h-4 sm:w-5 sm:h-5 group-hover:rotate-45 transition-transform duration-200" />
+            <Settings className="w-4 h-4 group-hover:rotate-45 transition-transform duration-200" />
           </button>
         </div>
       </div>
